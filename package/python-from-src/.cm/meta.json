@@ -1,0 +1,80 @@
+{
+  "check_exit_status": "yes",
+  "customize": {
+    "install_env": {
+      "PACKAGE_URL": "https://www.python.org/ftp/python/",
+      "ENABLE_SHARED": "yes"
+    }
+  },
+  "deps": {
+    "compiler": {
+      "add_to_path": "no",
+      "local": "yes",
+      "name": "GCC compiler",
+      "sort": 20,
+      "tags": "compiler,gcc,lang-c"
+    }
+  },
+  "end_full_path": {
+    "linux": "install/bin/python3"
+  },
+  "only_for_host_os_tags": [
+    "linux"
+  ],
+  "only_for_target_os_tags": [
+    "linux"
+  ],
+  "process_script": "install",
+  "soft_uoa": "compiler.python",
+  "suggested_path": "python-from-src",
+  "need_cpu_info": "yes",
+  "tags": [
+    "compiler",
+    "python",
+    "lang-python",
+    "source"
+  ],
+  "variations": {
+    "v3.5.10": {
+      "extra_customize": {
+        "version": "3.5.10"
+      },
+      "extra_env": {
+        "PACKAGE_VERSION": "3.5.10"
+      }
+    },
+    "v3.6.13": {
+      "extra_customize": {
+        "version": "3.6.13"
+      },
+      "extra_env": {
+        "PACKAGE_VERSION": "3.6.13"
+      }
+    },
+    "v3.7.10": {
+      "extra_customize": {
+        "version": "3.7.10"
+      },
+      "extra_env": {
+        "PACKAGE_VERSION": "3.7.10"
+      },
+      "on_by_default":"yes"
+    },
+    "v3.8.9": {
+      "extra_customize": {
+        "version": "3.8.9"
+      },
+      "extra_env": {
+        "PACKAGE_VERSION": "3.8.9"
+      }
+    },
+    "v3.9.4": {
+      "extra_customize": {
+        "version": "3.9.4"
+      },
+      "extra_env": {
+        "PACKAGE_VERSION": "3.9.4"
+      }
+    }
+  }
+}
