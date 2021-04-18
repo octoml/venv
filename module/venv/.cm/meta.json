@@ -3,8 +3,8 @@
     "prepare": {
       "desc": "prepare CK virtual env"
     }, 
-    "run": {
-      "desc": "run CK virtual env"
+    "activate": {
+      "desc": "activate CK virtual env"
     }
   }, 
   "desc": "CK python virtual environment"

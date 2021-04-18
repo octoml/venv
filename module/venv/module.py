@@ -1,11 +1,8 @@
 #
 # Collective Knowledge (CK python virtual environment)
 #
-#
-#
-#
 # Developer:
-#
+#  * Grigori Fursin <grigori@octoml.ai>
 
 cfg = {}  # Will be updated by CK (meta description of this module)
 work = {}  # Will be updated by CK (temporal data)
@@ -36,7 +33,7 @@ def init(i):
 # run CK virtual env
 
 
-def run(i):
+def activate(i):
     """
     Input:  {
               data_uoa - virtual environment name
@@ -252,8 +249,8 @@ def prepare(i):
     path_ck_activate_all = os.path.join(p, ck_activate_all)
 
     # Create virtual env (load python env to set up env)
-    s = 'chmod 755 ' + path_to_orig_python_env + ' ; bash -c '+path_to_orig_python_env + \
-        ' ; virtualenv --python=' + python_bin + ' ' + p
+    s = 'chmod 755 ' + path_to_orig_python_env + ' ; bash -c "source '+path_to_orig_python_env + \
+        ' ; virtualenv --python=' + python_bin + ' ' + p + '"'
 
     ck.out(line)
     ck.out('Python binary used to set up virtual env: '+python_bin)
