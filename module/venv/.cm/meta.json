@@ -1,5 +1,8 @@
 {
   "actions": {
+    "create": {
+      "desc": "prepare CK virtual env"
+    }, 
     "prepare": {
       "desc": "prepare CK virtual env"
     }, 

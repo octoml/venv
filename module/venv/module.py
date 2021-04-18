@@ -78,7 +78,8 @@ def activate(i):
 
 ##############################################################################
 # prepare CK virtual env
-
+def create(i):
+    return prepare(i)
 
 def prepare(i):
     """
@@ -296,6 +297,6 @@ source $<venv>$
     ck.out(line)
     ck.out('Virtual environment is ready in '+p)
     ck.out('')
-    ck.out('Start it with "ck run venv:'+duoa+'"')
+    ck.out('Start it with "ck activate venv:'+duoa+'"')
 
     return {'return': 0}
