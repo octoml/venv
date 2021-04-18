@@ -1,0 +1,11 @@
+{
+  "actions": {
+    "prepare": {
+      "desc": "prepare CK virtual env"
+    }, 
+    "run": {
+      "desc": "run CK virtual env"
+    }
+  }, 
+  "desc": "CK python virtual environment"
+}
