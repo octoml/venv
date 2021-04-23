@@ -39,12 +39,6 @@ CK will attempt to detect existing python versions and will ask you which one to
 ck activate venv:test1
 ```
 
-## Find where the virtual environment is located
-
-```
-ck find venv:test1
-```
-
 ## Install and use another python
 
 Some projects require a specific python version that may not be installed on your system.
@@ -53,6 +47,14 @@ and install a required python version as follows (for example, MLPerf inference 
 requires Python 3.7+ which may not be available on your system):
 ```
 ck install package --tags=compiler,python
+```
+
+Note that you may need to have some system dependencies installed. Typical dependencies for Ubuntu:
+```
+sudo apt install libglib2.0-0 libsm6 \
+                 git wget bzip2 zip libz-dev \
+                 cmake \
+                 libssl-dev libbz2-dev libffi-dev
 ```
 
 It may take several minutes depending on your system.
@@ -77,3 +79,19 @@ ck create venv:test2
 ```
 
 CK will detect that a new Python version is installed and will ask you to use it.
+
+## List all available virtual environments
+```
+ck ls venv
+```
+
+## Find where a given virtual environment located:
+
+```
+ck find venv:test1
+```
+
+## Delete a given virtual environment
+```
+ck rm venv:test1
+```

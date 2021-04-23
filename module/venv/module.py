@@ -11,6 +11,9 @@ ck = None  # Will be updated by CK (initialized CK kernel)
 # Local settings
 line = '======================================================================='
 
+ck_repos = 'CK'
+ck_tools = 'CK-TOOLS'
+
 ##############################################################################
 # Initialize module
 
@@ -61,15 +64,24 @@ def activate(i):
     if r['return'] > 0:
         return r
 
-    d=r['dict']
+    d = r['dict']
+    p = r['path']
 
-    path_to_activate_all = os.path.join(r['path'], d['ck_activate_all'])
+    path_to_activate_all = os.path.join(p, d['ck_activate_all'])
+    path_to_repos = os.path.join(p, d['ck_repos'])
+    path_to_tools = os.path.join(p, d['ck_tools'])
+
 
     # Run shell
     s = 'bash --init-file "' + path_to_activate_all + '"'
 
     ck.out(line)
-    ck.out(s)
+    ck.out('Command: '+s)
+    ck.out('')
+
+    ck.out('Path to this virtual environment:  ' + p)
+    ck.out('Path to CK repos inside this venv: ' + path_to_repos)
+    ck.out('Path to CK tools inside this venv: ' + path_to_tools)
     ck.out('')
 
     os.system(s)
@@ -200,8 +212,6 @@ def prepare(i):
     if python_bin == '':
         return {'return': 1, 'error': 'python binary file is not found - please contact developers'}
 
-    ck_repos = 'ck-repos'
-    ck_tools = 'ck-tools'
     ck_activate = os.path.join('bin', 'activate')
 
     ck_activate_all = 'env.sh'
