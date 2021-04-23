@@ -57,6 +57,9 @@ def activate(i):
     if duoa == '':
         return {'return': 1, 'error': 'virtual alias is not defined'}
 
+    # Check if Windows host
+    win = os.name == 'nt'
+
     # Get environment info
     r = ck.access({'action': 'load',
                    'module_uoa': work['self_module_uoa'],
@@ -71,9 +74,11 @@ def activate(i):
     path_to_repos = os.path.join(p, d['ck_repos'])
     path_to_tools = os.path.join(p, d['ck_tools'])
 
-
     # Run shell
-    s = 'bash --init-file "' + path_to_activate_all + '"'
+    if win:
+        s = 'call "' + path_to_activate_all + '" && cmd'
+    else:
+        s = 'bash --init-file "' + path_to_activate_all + '"'
 
     ck.out(line)
     ck.out('Command: '+s)
@@ -119,6 +124,10 @@ def prepare(i):
 
     fd = i.get('force_detect', '') == 'yes'
 
+    # Check if Windows host
+    win = os.name == 'nt'
+
+    # Search for existing python versions
     request = {'action': 'search',
                'module_uoa': 'env',
                'tags': 'compiler,python',
@@ -206,15 +215,18 @@ def prepare(i):
     d = r['dict']
 
     # Prepare some paths inside venv
-    path_to_orig_python_env = os.path.join(r['path'], 'env.sh')
+    ck_activate_all = 'env.sh' if not win else 'env.bat'
+
+    path_to_orig_python_env = os.path.join(r['path'], ck_activate_all)
 
     python_bin = d.get('env', {}).get('CK_ENV_COMPILER_PYTHON_FILE', '')
     if python_bin == '':
         return {'return': 1, 'error': 'python binary file is not found - please contact developers'}
 
-    ck_activate = os.path.join('bin', 'activate')
-
-    ck_activate_all = 'env.sh'
+    if win:
+        ck_activate = os.path.join('Scripts', 'activate.bat')
+    else:
+        ck_activate = os.path.join('bin', 'activate')
 
     # Add or reuse CK venv entry
     r = ck.access({'action': 'find',
@@ -260,8 +272,11 @@ def prepare(i):
     path_ck_activate_all = os.path.join(p, ck_activate_all)
 
     # Create virtual env (load python env to set up env)
-    s = 'chmod 755 ' + path_to_orig_python_env + ' ; bash -c "source '+path_to_orig_python_env + \
-        ' ; virtualenv --python=' + python_bin + ' ' + p + '"'
+    if win:
+        s = 'call '+path_to_orig_python_env + ' && virtualenv --python=' + python_bin + ' "' + p + '"'
+    else:
+        s = 'chmod 755 ' + path_to_orig_python_env + ' ; bash -c "source '+path_to_orig_python_env + \
+            ' ; virtualenv --python=' + python_bin + ' ' + p + '"'
 
     ck.out(line)
     ck.out('Python binary used to set up virtual env: '+python_bin)
@@ -277,7 +292,20 @@ def prepare(i):
         return {'return': 1, 'error': 'last command failed'}
 
     # Record environment file with extra vars
-    script = """#! /bin/bash
+    if win:
+        script = """@echo off
+rem CK generated script
+
+set CK_REPOS=$<ck_repos>$
+set CK_TOOLS=$<ck_tools>$
+
+rem May need some shared libs from the original python
+call $<path_to_orig_python_env>$
+
+call $<venv>$
+"""
+    else:
+        script = """#! /bin/bash
 # CK generated script
 
 export CK_REPOS=$<ck_repos>$
@@ -299,10 +327,11 @@ source $<venv>$
     if r['return'] > 0:
         return r
 
-    s = 'bash -c "chmod 755 '+path_ck_activate_all+'"'
-    r = os.system(s)
-    if r > 0:
-        return {'return': 1, 'error': 'last command failed'}
+    if not win:
+        s = 'bash -c "chmod 755 '+path_ck_activate_all+'"'
+        r = os.system(s)
+        if r > 0:
+            return {'return': 1, 'error': 'last command failed'}
 
     ck.out(line)
     ck.out('Virtual environment is ready in '+p)

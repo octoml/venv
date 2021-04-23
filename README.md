@@ -24,6 +24,13 @@ Pull CK repository with virtual environment automation:
 ck pull repo --url=https://github.com/octoml/ck-venv
 ```
 
+### Windows
+If your host OS is Windows, please pull the following repository 
+with extra CK components for Windows:
+```
+ck pull repo:ck-win
+```
+
 ## Create virtual environment with existing Python
 
 Run the following command:
@@ -38,6 +45,29 @@ CK will attempt to detect existing python versions and will ask you which one to
 ```
 ck activate venv:test1
 ```
+
+## Detect another installed python to be used for virtual environment
+
+You can detect another python version installed on your system 
+that can be used to create CK virtual environments as follows:
+
+```
+ck detect soft --tags=compiler,python 
+```
+
+You can specify extra paths where to search for it as follows:
+```
+ck detect soft:compiler.python --search_dirs={directories separated by comma}
+```
+
+You can force CK to search for Python only in one specific directory:
+```
+ck detect soft:compiler.python --search_dir={path to python installation}
+```
+
+If your host OS is Windows, you can manually download and install a required Python version 
+from [here](https://www.python.org/downloads/windows/) and then use above CK commands 
+to detect the new installation.
 
 ## Install and use another python
 
