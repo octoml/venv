@@ -334,6 +334,21 @@ source $<venv>$
             return {'return': 1, 'error': 'last command failed'}
 
     ck.out(line)
+    ck.out('Installing CK ...')
+    ck.out('')
+
+    if win:
+        s = 'call "' + path_ck_activate_all + '" && pip install ck --no-cache-dir'
+    else:
+        s = 'bash -c "source '+path_ck_activate_all + ' ; pip install ck --no-cache-dir" '
+    ck.out('')
+    r = os.system(s)
+    if r > 0:
+        return {'return': 1, 'error': 'last command failed'}
+
+
+
+    ck.out(line)
     ck.out('Virtual environment is ready in '+p)
     ck.out('')
     ck.out('Start it with "ck activate venv:'+duoa+'"')
