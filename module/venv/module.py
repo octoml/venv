@@ -333,18 +333,28 @@ source $<venv>$
         if r > 0:
             return {'return': 1, 'error': 'last command failed'}
 
-    ck.out(line)
-    ck.out('Installing CK ...')
-    ck.out('')
 
-    if win:
-        s = 'call "' + path_ck_activate_all + '" && pip install ck --no-cache-dir'
-    else:
-        s = 'bash -c "source '+path_ck_activate_all + ' ; pip install ck --no-cache-dir" '
-    ck.out('')
-    r = os.system(s)
-    if r > 0:
-        return {'return': 1, 'error': 'last command failed'}
+# Grigori: I first thought to add local CK installation with --no-cache-dir
+# to avoid rare strange effects with ck-python.cfg that is cached in a wheel
+# and can point to a wrong python.
+
+# However, it's very rare and in fact, we do not need to install CK inside
+# virtual environment at all - we can reuse the one from the original installation!
+
+# In such, case creating virtualenv is much faster!
+
+#    ck.out(line)
+#    ck.out('Installing CK ...')
+#    ck.out('')
+#
+#    if win:
+#        s = 'call "' + path_ck_activate_all + '" && pip install ck --no-cache-dir'
+#    else:
+#        s = 'bash -c "source '+path_ck_activate_all + ' ; pip install ck --no-cache-dir" '
+#    ck.out('')
+#    r = os.system(s)
+#    if r > 0:
+#        return {'return': 1, 'error': 'last command failed'}
 
 
 
