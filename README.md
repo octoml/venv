@@ -18,7 +18,7 @@ or
 python3 -m pip install ck
 ```
 
-In case of problems, please follow [this guilde](https://ck.readthedocs.io/en/latest/src/installation.html)
+In case of problems, please follow [this guilde](https://ck.readthedocs.io/en/latest/src/installation.html).
 
 ## CK venv automation repository
 
@@ -36,8 +36,8 @@ ck pull repo:ck-win
 
 ## Installation and usage
 
-* [Native installation][README.native.md]
-* [CK adaptive containers][README.docker.md]
+* [Native installation](README.native.md)
+* [CK adaptive containers](README.docker.md)
 
 ## Problems
 
