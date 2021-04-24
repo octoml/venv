@@ -34,6 +34,13 @@ with extra CK components for Windows:
 ck pull repo:ck-win
 ```
 
+### Update all repositories
+
+You can update all CK repositories from time to time using the following command:
+```
+ck pull all
+```
+
 ## Installation and usage
 
 * [Native installation](README.native.md)
