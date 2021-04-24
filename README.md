@@ -1,5 +1,12 @@
 # CK virtual environment
 
+[![compatibility](https://github.com/ctuning/ck-guide-images/blob/master/ck-compatible.svg)](https://github.com/ctuning/ck)
+[![automation](https://github.com/ctuning/ck-guide-images/blob/master/ck-artifact-automated-and-reusable.svg)](https://youtu.be/7zpeIVwICa4)
+
+Linux & MacOS: [![Travis Build Status](https://travis-ci.org/ctuning/ck-autotuning.svg?branch=master)](https://travis-ci.org/ctuning/ck-autotuning)
+Windows: [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/github/ctuning/ck-autotuning?branch=master&svg=true)](https://ci.appveyor.com/project/ens-lg4/ck-autotuning)
+
+
 ## Prerequisites
 
 You need to have git, python, pip and virtualenv installed on your system.
@@ -17,7 +24,7 @@ python3 -m pip install ck
 
 In case of problems, please follow [this guilde](https://ck.readthedocs.io/en/latest/src/installation.html)
 
-## CK venv automation repository 
+## CK venv automation repository
 
 Pull CK repository with virtual environment automation:
 ```
@@ -31,97 +38,16 @@ with extra CK components for Windows:
 ck pull repo:ck-win
 ```
 
-## Create virtual environment with existing Python
+## Installation and usage
 
-Run the following command:
-```
-ck create venv:test1
-```
+* [Native installation][README.native.md]
+* [CK adaptive containers][README.docker.md]
 
-CK will attempt to detect existing python versions and will ask you which one to use for your virtual environment.
+## Problems
 
-## Activate created virtual environment
+Don't hesitate to report issues or submit feature requests
 
-```
-ck activate venv:test1
-```
+## Motivation
 
-## Detect another installed python to be used for virtual environment
-
-You can detect another python version installed on your system 
-that can be used to create CK virtual environments as follows:
-
-```
-ck detect soft --tags=compiler,python 
-```
-
-You can specify extra paths where to search for it as follows:
-```
-ck detect soft:compiler.python --search_dirs={directories separated by comma}
-```
-
-You can force CK to search for Python only in one specific directory:
-```
-ck detect soft:compiler.python --search_dir={path to python installation}
-```
-
-If your host OS is Windows, you can manually download and install a required Python version 
-from [here](https://www.python.org/downloads/windows/) and then use above CK commands 
-to detect the new installation.
-
-## Install and use another python
-
-Some projects require a specific python version that may not be installed on your system.
-In such case you can use a CK python package to automatically download 
-and install a required python version as follows (for example, MLPerf inference v0.7+ 
-requires Python 3.7+ which may not be available on your system):
-```
-ck install package --tags=compiler,python
-```
-
-Note that you may need to have some system dependencies installed. Typical dependencies for Ubuntu:
-```
-sudo apt install libglib2.0-0 libsm6 \
-                 git wget bzip2 zip libz-dev \
-                 cmake \
-                 libssl-dev libbz2-dev libffi-dev
-```
-
-It may take several minutes depending on your system.
-
-You can turn on optimizations as follows:
-```
-ck install package --tags=compiler,python --env.ENABLE_OPTS=yes
-```
-
-But note that it may take 1 hour to build such python. 
-You can find all customization options in [the readme](https://github.com/octoml/ck-venv/tree/main/package/python-from-src) 
-of this CK package.
-
-You can also install python without shared libraries as follows:
-```
-ck install package --tags=compiler,python --env.ENABLE_SHARED=""
-```
-
-You can then create a virtual environment with the new python using the same CK command as before:
-```
-ck create venv:test2
-```
-
-CK will detect that a new Python version is installed and will ask you to use it.
-
-## List all available virtual environments
-```
-ck ls venv
-```
-
-## Find where a given virtual environment located:
-
-```
-ck find venv:test1
-```
-
-## Delete a given virtual environment
-```
-ck rm venv:test1
-```
+* [White paper](https://arxiv.org/pdf/2006.07161.pdf) and [extended journal article](https://arxiv.org/pdf/2011.01149.pdf)
+* [ACM TechTalk on YouTube](https://www.youtube.com/watch?=7zpeIVwICa4)
