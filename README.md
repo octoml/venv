@@ -18,7 +18,7 @@ or
 python3 -m pip install ck
 ```
 
-In case of problems, please follow [this guilde](https://ck.readthedocs.io/en/latest/src/installation.html).
+In case of problems, please follow [this guide](https://ck.readthedocs.io/en/latest/src/installation.html).
 
 ### CK venv automation repository
 
