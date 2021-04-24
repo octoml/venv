@@ -3,10 +3,6 @@
 [![compatibility](https://github.com/ctuning/ck-guide-images/blob/master/ck-compatible.svg)](https://github.com/ctuning/ck)
 [![automation](https://github.com/ctuning/ck-guide-images/blob/master/ck-artifact-automated-and-reusable.svg)](https://youtu.be/7zpeIVwICa4)
 
-Linux & MacOS: [![Travis Build Status](https://travis-ci.org/ctuning/ck-autotuning.svg?branch=master)](https://travis-ci.org/ctuning/ck-autotuning)
-Windows: [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/github/ctuning/ck-autotuning?branch=master&svg=true)](https://ci.appveyor.com/project/ens-lg4/ck-autotuning)
-
-
 ## Prerequisites
 
 You need to have git, python, pip and virtualenv installed on your system.
