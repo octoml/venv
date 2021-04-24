@@ -7,7 +7,7 @@
 
 You need to have git, python, pip and virtualenv installed on your system.
 
-## CK framework
+### CK framework
 
 Install [CK framework](https://github.com/ctuning/ck):
 ```
@@ -20,7 +20,7 @@ python3 -m pip install ck
 
 In case of problems, please follow [this guilde](https://ck.readthedocs.io/en/latest/src/installation.html).
 
-## CK venv automation repository
+### CK venv automation repository
 
 Pull CK repository with virtual environment automation:
 ```
@@ -41,7 +41,7 @@ ck pull repo:ck-win
 
 ## Problems
 
-Don't hesitate to report issues or submit feature requests
+Don't hesitate to report issues or submit feature requests.
 
 ## Motivation
 
