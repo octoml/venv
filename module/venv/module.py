@@ -225,8 +225,10 @@ def prepare(i):
 
     if win:
         ck_activate = os.path.join('Scripts', 'activate.bat')
+        ck_new_python = os.path.join('Scripts', 'python.exe')
     else:
         ck_activate = os.path.join('bin', 'activate')
+        ck_new_python = os.path.join('bin','python')
 
     # Add or reuse CK venv entry
     r = ck.access({'action': 'find',
@@ -256,6 +258,7 @@ def prepare(i):
           'ck_repos': ck_repos,
           'ck_tools': ck_tools,
           'ck_activate': ck_activate,
+          'ck_new_python': ck_new_python,
           'ck_activate_all': ck_activate_all}
 
     r = ck.access({'action': 'add',
@@ -269,6 +272,7 @@ def prepare(i):
     path_ck_repos = os.path.join(p, ck_repos)
     path_ck_tools = os.path.join(p, ck_tools)
     path_ck_activate = os.path.join(p, ck_activate)
+    path_ck_new_python = os.path.join(p, ck_new_python)
     path_ck_activate_all = os.path.join(p, ck_activate_all)
 
     # Create virtual env (load python env to set up env)
@@ -298,6 +302,7 @@ rem CK generated script
 
 set CK_REPOS=$<ck_repos>$
 set CK_TOOLS=$<ck_tools>$
+set CK_VPYTHON_BIN=$<ck_vpython_bin>$
 
 rem May need some shared libs from the original python
 call $<path_to_orig_python_env>$
@@ -310,6 +315,7 @@ call $<venv>$
 
 export CK_REPOS=$<ck_repos>$
 export CK_TOOLS=$<ck_tools>$
+export CK_VPYTHON_BIN=$<ck_vpython_bin>$
 
 # May need some shared libs from the original python
 source $<path_to_orig_python_env>$
@@ -320,6 +326,7 @@ source $<venv>$
     script = script.replace('$<ck_repos>$', path_ck_repos)
     script = script.replace('$<ck_tools>$', path_ck_tools)
     script = script.replace('$<path_to_orig_python_env>$', path_to_orig_python_env)
+    script = script.replace('$<ck_vpython_bin>$', path_ck_new_python)
     script = script.replace('$<venv>$', path_ck_activate)
 
     r = ck.save_text_file({'text_file': path_ck_activate_all,
@@ -357,6 +364,37 @@ source $<venv>$
 #        return {'return': 1, 'error': 'last command failed'}
 
 
+# It's can't work at this moment because we don't have OS/platform components
+    # Register python from virtual environment
+#    ck.out(line)
+#    ck.out('Register new python from the virtual environment ...')
+#    ck.out('')
+
+#    if win:
+#        s = 'call "' + path_ck_activate_all + '" && ck detect soft:compiler.python --full_path="'+path_ck_new_python+'"'
+#    else:
+#        s = 'bash -c "source '+path_ck_activate_all + ' ; ck detect soft:compiler.python --full_path=\\"'+path_ck_new_python+'\\""'
+#    ck.out(s)
+#    ck.out('')
+#    r = os.system(s)
+#    if r > 0:
+#        return {'return': 1, 'error': 'last command failed'}
+
+
+    # Configure CK Register python from virtual environment
+    ck.out(line)
+    ck.out('Configure CK to install new packages to CK env entries with tags for easy search ...')
+    ck.out('')
+
+    if win:
+        s = 'call "' + path_ck_activate_all + '" && ck setup kernel --var.install_to_env=yes'
+    else:
+        s = 'bash -c "source '+path_ck_activate_all + ' ; ck setup kernel --var.install_to_env=yes"'
+    ck.out(s)
+    ck.out('')
+    r = os.system(s)
+    if r > 0:
+        return {'return': 1, 'error': 'last command failed'}
 
     ck.out(line)
     ck.out('Virtual environment is ready in '+p)
