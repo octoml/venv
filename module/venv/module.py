@@ -84,9 +84,13 @@ def activate(i):
     ck.out('Command: '+s)
     ck.out('')
 
+    e=('%','%') if win else ('$','')
+
     ck.out('Path to this virtual environment:  ' + p)
     ck.out('Path to CK repos inside this venv: ' + path_to_repos)
     ck.out('Path to CK tools inside this venv: ' + path_to_tools)
+    ck.out('')
+    ck.out('Use "cd '+e[0]+'CK_VENV'+e[1]+'" to jump to the venv home directory')
     ck.out('')
 
     os.system(s)
@@ -303,6 +307,7 @@ rem CK generated script
 set CK_REPOS=$<ck_repos>$
 set CK_TOOLS=$<ck_tools>$
 set CK_VPYTHON_BIN=$<ck_vpython_bin>$
+set CK_VENV=$<ck_venv>$
 
 rem May need some shared libs from the original python
 call $<path_to_orig_python_env>$
@@ -316,6 +321,7 @@ call $<venv>$
 export CK_REPOS=$<ck_repos>$
 export CK_TOOLS=$<ck_tools>$
 export CK_VPYTHON_BIN=$<ck_vpython_bin>$
+export CK_VENV=$<ck_venv>$
 
 # May need some shared libs from the original python
 source $<path_to_orig_python_env>$
@@ -327,6 +333,7 @@ source $<venv>$
     script = script.replace('$<ck_tools>$', path_ck_tools)
     script = script.replace('$<path_to_orig_python_env>$', path_to_orig_python_env)
     script = script.replace('$<ck_vpython_bin>$', path_ck_new_python)
+    script = script.replace('$<ck_venv>$', p)
     script = script.replace('$<venv>$', path_ck_activate)
 
     r = ck.save_text_file({'text_file': path_ck_activate_all,
