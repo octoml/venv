@@ -306,11 +306,14 @@ rem CK generated script
 
 set CK_REPOS=$<ck_repos>$
 set CK_TOOLS=$<ck_tools>$
-set CK_VPYTHON_BIN=$<ck_vpython_bin>$
+set CK_VENV_PYTHON_BIN=$<ck_vpython_bin>$
 set CK_VENV=$<ck_venv>$
 
 rem May need some shared libs from the original python
 call $<path_to_orig_python_env>$
+
+rem Allow CK to detect a new compiler in venv
+set CK_ENV_COMPILER_PYTHON_SET=0
 
 call $<venv>$
 """
@@ -320,11 +323,14 @@ call $<venv>$
 
 export CK_REPOS=$<ck_repos>$
 export CK_TOOLS=$<ck_tools>$
-export CK_VPYTHON_BIN=$<ck_vpython_bin>$
+export CK_VENV_PYTHON_BIN=$<ck_vpython_bin>$
 export CK_VENV=$<ck_venv>$
 
 # May need some shared libs from the original python
 source $<path_to_orig_python_env>$
+
+# Allow CK to detect a new compiler in venv
+export CK_ENV_COMPILER_PYTHON_SET=0
 
 source $<venv>$
 """
