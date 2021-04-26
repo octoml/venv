@@ -47,3 +47,6 @@ RUN ${DUMMY_CK} pip3 install ck --user
 
 # Clone ck-ml repo
 RUN ck pull repo:ck-ml
+
+# Install packages to CK env entries
+RUN ck setup kernel --var.install_to_env=yes
