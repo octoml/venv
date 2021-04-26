@@ -9,9 +9,9 @@ You need to have git, python, pip and virtualenv installed on your system.
 
 ### CK framework
 
-Install [CK framework](https://github.com/ctuning/ck):
+Install [CK](https://github.com/ctuning/ck) :
 ```
-pip install ck
+pip3 install ck
 ```
 or
 ```
