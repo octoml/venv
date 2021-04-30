@@ -25,7 +25,7 @@ You can detect another python version installed on your system
 that can be used to create CK virtual environments as follows:
 
 ```
-ck detect soft --tags=compiler,python 
+ck detect soft --tags=compiler,python
 ```
 
 You can specify extra paths where to search for it as follows:
@@ -49,7 +49,7 @@ In such case you can use a CK python package to automatically download
 and install a required python version as follows (for example, MLPerf inference v0.7+ 
 requires Python 3.7+ which may not be available on your system):
 ```
-ck install package --tags=compiler,python
+ck install package --tags=compiler,python,src
 ```
 
 Note that you may need to have some system dependencies installed. Typical dependencies for Ubuntu:

@@ -15,7 +15,7 @@ sudo apt-get install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev zli
 # Installation
 
 ```
-ck install package --tags=compiler,python
+ck install package --tags=compiler,python,src
 ```
 
 CK will ask you to select a version (variation).

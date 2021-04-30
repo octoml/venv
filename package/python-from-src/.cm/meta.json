@@ -32,7 +32,8 @@
     "compiler",
     "python",
     "lang-python",
-    "source"
+    "source",
+    "src"
   ],
   "variations": {
     "v3.5.10": {
