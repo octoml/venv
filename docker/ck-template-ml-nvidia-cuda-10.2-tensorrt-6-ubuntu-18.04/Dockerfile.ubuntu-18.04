@@ -21,7 +21,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
     apt install -y --no-install-recommends \
            apt-utils \
-           git wget zip bzip2 libz-dev libbz2-dev cmake curl \
+           git wget zip bzip2 libz-dev libbz2-dev cmake curl unzip \
            openssh-client vim mc tree \
            gcc g++ autoconf autogen libtool make libc6-dev build-essential \
            libssl-dev libbz2-dev libffi-dev \
