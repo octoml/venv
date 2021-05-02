@@ -22,7 +22,7 @@ RUN apt update && \
            apt-utils \
            git wget zip bzip2 libz-dev libbz2-dev cmake curl \
            openssh-client vim mc tree \
-           gcc g++ autoconf autogen libtool make libc6-dev \
+           gcc g++ autoconf autogen libtool make libc6-dev build-essential \
            libgtk2.0-dev libssl-dev libbz2-dev libffi-dev \
            python3 python3-pip python3-dev \
            sudo
