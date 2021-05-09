@@ -1,0 +1,15 @@
+{
+  "backup_data_uid": "00437f87b26fd015", 
+  "backup_module_uid": "032630d041b4fd8a", 
+  "backup_module_uoa": "module", 
+  "control": {
+    "engine": "CK", 
+    "iso_datetime": "2021-05-09T13:30:27.979146", 
+    "version": [
+      "1", 
+      "12", 
+      "3"
+    ]
+  }, 
+  "data_name": "venv.template"
+}
