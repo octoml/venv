@@ -98,3 +98,16 @@ ck find venv:test1
 ```
 ck rm venv:test1
 ```
+
+## Create a virtual environment with a template
+
+You can create a virtual environment and run a script with extra commands from a venv template.
+For example, you can initialize virtual CK environment for MLPerf inference v1.0 as follows:
+```
+ck create venv:mlperf --template=mlperf-inference-1.0
+```
+
+You can list available templates as follows:
+```
+ck ls venv.template
+```
