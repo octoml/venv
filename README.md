@@ -24,7 +24,7 @@ In case of problems, please follow [this guide](https://ck.readthedocs.io/en/lat
 
 Pull CK repository with virtual environment automation:
 ```
-ck pull repo --url=https://github.com/octoml/ck-venv
+ck pull repo:octoml@venv
 ```
 
 ### Windows
