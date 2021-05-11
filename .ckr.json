@@ -1,10 +1,10 @@
 {
   "data_uid": "7a8c0449a7b1d540", 
-  "data_name": "ck-venv", 
+  "data_name": "octoml@venv", 
   "dict": {
-    "url": "https://github.com/octoml/ck-venv", 
+    "url": "https://github.com/octoml/venv", 
     "shared": "git"
   }, 
-  "data_alias": "ck-venv", 
-  "data_uoa": "ck-venv"
+  "data_alias": "octoml@venv", 
+  "data_uoa": "octoml@venv"
 }
