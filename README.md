@@ -3,52 +3,64 @@
 [![compatibility](https://github.com/ctuning/ck-guide-images/blob/master/ck-compatible.svg)](https://github.com/ctuning/ck)
 [![automation](https://github.com/ctuning/ck-guide-images/blob/master/ck-artifact-automated-and-reusable.svg)](https://youtu.be/7zpeIVwICa4)
 
-## Prerequisites
+This [CK](https://github.com/ctuning/ck) repository provides automation 
+for virtual environments on Linux and Windows.
 
-You need to have git, python, pip and virtualenv installed on your system.
+## License
 
-### CK framework
+Apache 2.0
 
-Install [CK](https://github.com/ctuning/ck) :
+## Installation
+
+### Install CK framework
+Install CK framework and prerequisites as descrbied in [this guide](https://ck.readthedocs.io/en/latest/src/installation.html).
+
+In most cases, you can install ck using pip as follows:
+
 ```
-pip3 install ck
+pip install ck
 ```
 or
 ```
 python3 -m pip install ck
 ```
-
-In case of problems, please follow [this guide](https://ck.readthedocs.io/en/latest/src/installation.html).
-
-### CK venv automation repository
-
-Pull CK repository with virtual environment automation:
+or
 ```
-ck pull repo:octoml@venv
+pip3 install ck --user
 ```
 
-### Windows
-If your host OS is Windows, please pull the following repository 
-with extra CK components for Windows:
+### Install virtualenv
+
+```
+pip3 install virtualenv
+```
+
+### Pull this repository via CK
+
+```
+ck pull repo:ck-venv
+```
+
+If you use Windows, you need to pull an extra repository:
 ```
 ck pull repo:ck-win
 ```
 
-### Update all repositories
+### Update all CK repositories
 
 You can update all CK repositories from time to time using the following command:
 ```
 ck pull all
 ```
 
-## Installation and usage
+## Usage
 
-* [Native installation](README.native.md)
-* [CK adaptive containers](README.docker.md)
+* [From the native environment](README.native.md)
+* [From containers](README.docker.md)
 
 ## Problems
 
-Don't hesitate to report issues or submit feature requests.
+Don't hesitate to report issues or submit feature requests [here](https://github.com/ctuning/ck-venv/issues).
 
 ## Motivation
 

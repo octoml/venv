@@ -1,34 +1,43 @@
-echo "ck pull repo:ck-ml"
-ck pull repo:ck-ml
+#! /bin/bash
+#
+# Developer(s): 
+#  * Grigori Fursin, OctoML.ai
+#
+
+function ck_command {
+
+  echo "*************************************************************"
+  echo "$1"
+  echo ""
+
+  $1
+
+  if [ "${?}" != "0" ]; then 
+    exit 1; 
+  fi
+
+}
+
+ck_command "ck pull repo:ck-ml"
 
 # Install packages to CK env entries
-echo "ck setup kernel --var.install_to_env=yes"
-ck setup kernel --var.install_to_env=yes
+ck_command "ck setup kernel --var.install_to_env=yes"
 
-echo "ck detect platform.os --platform_init_uoa=generic-linux-dummy"
-ck detect platform.os --platform_init_uoa=generic-linux-dummy
+ck_command "ck detect platform.os --platform_init_uoa=generic-linux-dummy"
 
-echo "ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}"
-ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}
+ck_command "ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}"
 
-echo "ck detect soft:compiler.gcc --full_path=`which gcc`"
-ck detect soft:compiler.gcc --full_path=`which gcc`
+ck_command "ck detect soft:compiler.gcc --full_path=`which gcc`"
 
-echo "ck detect soft:tool.cmake"
-ck detect soft:tool.cmake
+ck_command "ck detect soft:tool.cmake"
+#ck_command "ck install package --quiet --tags=tool,cmake,src"
 
-echo "ck install package --quiet --tags=mlperf,inference,src,main"
-ck install package --quiet --tags=mlperf,inference,src,main
+ck_command "ck install package --quiet --tags=mlperf,inference,src,main"
 
-echo "ck install package --tags=lib,python-package,absl"
-ck install package --tags=lib,python-package,absl
+ck_command "ck install package --tags=lib,python-package,absl"
 
-echo "ck install package --tags=lib,python-package,numpy"
-ck install package --tags=lib,python-package,numpy
+ck_command "ck install package --tags=lib,python-package,numpy"
 
-echo "ck install package --tags=lib,python-package,mlperf,loadgen"
-ck install package --tags=lib,python-package,mlperf,loadgen
+ck_command "ck install package --tags=lib,python-package,mlperf,loadgen"
 
-echo "ck show env"
-echo "============================================================"
-ck show env
+ck_command "ck show env"

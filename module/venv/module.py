@@ -13,6 +13,7 @@ line = '======================================================================='
 
 ck_repos = 'CK'
 ck_tools = 'CK-TOOLS'
+ck_template_script = 'script'
 
 ##############################################################################
 # Initialize module
@@ -107,6 +108,9 @@ def prepare(i):
     Input:  {
               data_uoa - virtual environment name
               (force_detect) - if 'yes' force to detect installed python again
+
+              (template) - if !='', use scripts from this venv.template entry 
+                           at the end of venv creation
             }
 
     Output: {
@@ -130,6 +134,25 @@ def prepare(i):
 
     # Check if Windows host
     win = os.name == 'nt'
+
+    # Check template
+    template = i.get('template','')
+    template_path = ''
+    if template != '':
+        r = ck.access({'action':'load',
+                       'module_uoa':'venv.template',
+                       'data_uoa':template})
+        if r['return'] > 0:
+            return r
+
+        template_path = os.path.join(r['path'], ck_template_script)
+        if win:
+            template_path += '.bat'
+        else:
+            template_path += '.sh'
+
+        if not os.path.isfile(template_path):
+            return {'return':1, 'error':'template script not found ('+template_path+')'}
 
     # Search for existing python versions
     request = {'action': 'search',
@@ -382,7 +405,7 @@ source $<venv>$
 #    ck.out(line)
 #    ck.out('Register new python from the virtual environment ...')
 #    ck.out('')
-
+#
 #    if win:
 #        s = 'call "' + path_ck_activate_all + '" && ck detect soft:compiler.python --full_path="'+path_ck_new_python+'"'
 #    else:
@@ -393,6 +416,21 @@ source $<venv>$
 #    if r > 0:
 #        return {'return': 1, 'error': 'last command failed'}
 
+    # If template, runs the script at the end:
+    if template_path != '':
+        ck.out(line)
+        ck.out('Run script ('+template_path+') from template ('+template+') ...')
+        ck.out('')
+
+        if win:
+            s = 'call "' + path_ck_activate_all + '" && call '+template_path
+        else:
+            s = 'bash -c "source '+path_ck_activate_all + ' ; source '+template_path+'"'
+        ck.out(s)
+        ck.out('')
+        r = os.system(s)
+        if r > 0:
+            return {'return': 1, 'error': 'last command failed'}
 
     # Configure CK Register python from virtual environment
     ck.out(line)
