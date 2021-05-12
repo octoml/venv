@@ -36,6 +36,18 @@ if %errorlevel% neq 0 (exit /b 1)
 call common.bat ck install package --tags=lib,python-package,mlperf,loadgen
 if %errorlevel% neq 0 (exit /b 1)
 
+call common.bat ck install package --tags=lib,python-package,matplotlib
+if %errorlevel% neq 0 (exit /b 1)
+
+call common.bat ck install package --tags=lib,python-package,cython
+if %errorlevel% neq 0 (exit /b 1)
+
+call common.bat ck install package --tags=lib,python-package,opencv-python-headless
+if %errorlevel% neq 0 (exit /b 1)
+
+call common.bat ck install package --tags=tool,coco,api
+if %errorlevel% neq 0 (exit /b 1)
+
 call common.bat ck show env
 if %errorlevel% neq 0 (exit /b 1)
 
