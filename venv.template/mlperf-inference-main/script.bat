@@ -1,34 +1,42 @@
-echo ck pull repo:ck-ml
-ck pull repo:ck-ml
+@echo off
+
+rem
+rem Developer(s): 
+rem  * Grigori Fursin, OctoML.ai
+rem
+
+call common.bat ck pull repo:ck-ml
+if %errorlevel% neq 0 (exit /b 1)
 
 rem Install packages to CK env entries
-echo ck setup kernel --var.install_to_env=yes
-ck setup kernel --var.install_to_env=yes
+call common.bat ck setup kernel --var.install_to_env=yes
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck detect platform.os --platform_init_uoa=generic-linux-dummy
-ck detect platform.os --platform_init_uoa=generic-linux-dummy
+call common.bat ck detect platform.os --platform_init_uoa=generic-linux-dummy
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}
-ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}
+call common.bat ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck detect soft:compiler.gcc --full_path=`which gcc`
-ck detect soft:compiler.gcc --full_path=`which gcc`
+call common.bat ck detect soft:compiler.gcc --full_path=`which gcc`
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck detect soft:tool.cmake
-ck detect soft:tool.cmake
+call common.bat ck detect soft:tool.cmakex
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck install package --quiet --tags=mlperf,inference,src,main
-ck install package --quiet --tags=mlperf,inference,src,main
+call common.bat ck install package --quiet --tags=mlperf,inference,src,main
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck install package --tags=lib,python-package,absl
-ck install package --tags=lib,python-package,absl
+call common.bat ck install package --tags=lib,python-package,absl
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck install package --tags=lib,python-package,numpy
-ck install package --tags=lib,python-package,numpy
+call common.bat ck install package --tags=lib,python-package,numpy
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck install package --tags=lib,python-package,mlperf,loadgen
-ck install package --tags=lib,python-package,mlperf,loadgen
+call common.bat ck install package --tags=lib,python-package,mlperf,loadgen
+if %errorlevel% neq 0 (exit /b 1)
 
-echo ck show env
-echo ============================================================
-ck show env
+call common.bat ck show env
+if %errorlevel% neq 0 (exit /b 1)
+
+exit /b 0

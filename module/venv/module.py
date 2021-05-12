@@ -101,6 +101,23 @@ def activate(i):
 ##############################################################################
 # prepare CK virtual env
 def create(i):
+    """
+    Input:  {
+              data_uoa - virtual environment name
+              (force_detect) - if 'yes' force to detect installed python again
+
+              (template) - if !='', use scripts from this venv.template entry 
+                           at the end of venv creation
+            }
+
+    Output: {
+              return       - return code =  0, if successful
+                                         >  0, if error
+              (error)      - error text if return > 0
+            }
+
+    """
+
     return prepare(i)
 
 def prepare(i):
