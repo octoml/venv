@@ -21,22 +21,4 @@ if %errorlevel% neq 0 (exit /b 1)
 call common.bat ck detect soft:compiler.gcc --full_path=`which gcc`
 if %errorlevel% neq 0 (exit /b 1)
 
-call common.bat ck detect soft:tool.cmake
-if %errorlevel% neq 0 (exit /b 1)
-
-call common.bat ck install package --quiet --tags=mlperf,inference,src,r1.0
-if %errorlevel% neq 0 (exit /b 1)
-
-call common.bat ck install package --tags=lib,python-package,absl
-if %errorlevel% neq 0 (exit /b 1)
-
-call common.bat ck install package --tags=lib,python-package,numpy
-if %errorlevel% neq 0 (exit /b 1)
-
-call common.bat ck install package --tags=lib,python-package,mlperf,loadgen
-if %errorlevel% neq 0 (exit /b 1)
-
-call common.bat ck show env
-if %errorlevel% neq 0 (exit /b 1)
-
 exit /b 0

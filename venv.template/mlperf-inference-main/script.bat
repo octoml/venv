@@ -21,7 +21,7 @@ if %errorlevel% neq 0 (exit /b 1)
 call common.bat ck detect soft:compiler.gcc --full_path=`which gcc`
 if %errorlevel% neq 0 (exit /b 1)
 
-call common.bat ck detect soft:tool.cmakex
+call common.bat ck detect soft:tool.cmake
 if %errorlevel% neq 0 (exit /b 1)
 
 call common.bat ck install package --quiet --tags=mlperf,inference,src,main
