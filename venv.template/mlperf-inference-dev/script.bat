@@ -24,7 +24,7 @@ if %errorlevel% neq 0 (exit /b 1)
 call common.bat ck detect soft:tool.cmake
 if %errorlevel% neq 0 (exit /b 1)
 
-call common.bat ck install package --quiet --tags=mlperf,inference,src,main
+call common.bat ck install package --quiet --tags=mlperf,inference,src,dev
 if %errorlevel% neq 0 (exit /b 1)
 
 call common.bat ck install package --tags=lib,python-package,absl

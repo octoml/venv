@@ -32,7 +32,7 @@ ck_command "ck detect soft:compiler.gcc --full_path=`which gcc`"
 ck_command "ck detect soft:tool.cmake"
 #ck_command "ck install package --quiet --tags=tool,cmake,src"
 
-ck_command "ck install package --quiet --tags=mlperf,inference,src,main"
+ck_command "ck install package --quiet --tags=mlperf,inference,src,dev"
 
 ck_command "ck install package --tags=lib,python-package,absl"
 
