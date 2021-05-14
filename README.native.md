@@ -46,7 +46,7 @@ to detect the new installation.
 
 Some projects require a specific python version that may not be installed on your system.
 In such case you can use a CK python package to automatically download 
-and install a required python version as follows (for example, MLPerf inference v0.7+ 
+and install a required python version as follows (for example, MLPerf&trade; inference v0.7+ 
 requires Python 3.7+ which may not be available on your system):
 ```
 ck install package --tags=compiler,python,src
@@ -102,7 +102,7 @@ ck rm venv:test1
 ## Create a virtual environment with a template
 
 You can create a virtual environment and run a script with extra commands from a venv template.
-For example, you can initialize virtual CK environment for MLPerf inference v1.0 as follows:
+For example, you can initialize virtual CK environment for MLPerf&trade; inference v1.0 as follows:
 ```
 ck create venv:mlperf --template=mlperf-inference-1.0
 ```
