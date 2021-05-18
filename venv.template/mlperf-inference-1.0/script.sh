@@ -29,6 +29,11 @@ ck_command "ck detect soft:compiler.python --full_path=${CK_VENV_PYTHON_BIN}"
 
 ck_command "ck detect soft:compiler.gcc --full_path=`which gcc`"
 
+
+# Install pip packages
+ck_command "python3 -m pip install protobuf"
+
+
 #ck_command "ck detect soft:tool.cmake"
 ck_command "ck install package --quiet --tags=tool,cmake,src"
 
