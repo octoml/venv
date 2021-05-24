@@ -1,5 +1,5 @@
 {
-  "backup_data_uid": "d09244db4af60842",
+  "backup_data_uid": "bf766882641d78bb",
   "backup_module_uid": "88eef0cd8c43b68a",
   "backup_module_uoa": "docker",
   "control": {
@@ -8,7 +8,7 @@
     "author_webpage": "http://fursin.net",
     "copyright": "See CK COPYRIGHT.txt for copyright details",
     "engine": "CK",
-    "iso_datetime": "2021-04-24T15:38:19.221412",
+    "iso_datetime": "2021-04-24T15:35:51.694525",
     "license": "See CK LICENSE.txt for licensing details",
     "version": [
       "1",
@@ -16,5 +16,5 @@
       "11"
     ]
   },
-  "data_name": "ck-template-ml-x8664-tf-2.3.0-avx512-mkl-ubuntu-18.04"
+  "data_name": "ck-template-ml-tf-2.1.0-mkl"
 }

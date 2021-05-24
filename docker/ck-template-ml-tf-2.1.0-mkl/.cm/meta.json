@@ -1,0 +1,22 @@
+{
+  "default_org":"octoml",
+  "cmd": {
+    "default": {
+      "build": "-f $#CK_PATH#$/Dockerfile$#CK_TAG_DOT#$ -t $#CK_DOCKER_ORGANIZATION#$/$#CK_DOCKER_NAME#$$#CK_TAG_COLON#$ $#CK_PATH#$",
+      "run": "-it $#CK_DOCKER_ORGANIZATION#$/$#CK_DOCKER_NAME#$$#CK_TAG_COLON#$ bash"
+    }
+  },
+  "docker_tags": [
+    "ubuntu-18.04"
+  ],
+  "tags": [
+    "adaptive-container",
+    "template",
+    "octoml",
+    "ml",
+    "x8664",
+    "tf",
+    "tf-2.1.0",
+    "mkl"
+  ]
+}
