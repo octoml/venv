@@ -47,7 +47,7 @@ RUN ${DUMMY_CK} pip3 install virtualenv --user
 RUN ${DUMMY_CK} pip3 install ck --user
 
 # Clone ck-ml repo
-RUN ck pull repo:ck-ml
+RUN ck pull repo:ai
 
 # Install packages to CK env entries
 RUN ck setup kernel --var.install_to_env=yes
