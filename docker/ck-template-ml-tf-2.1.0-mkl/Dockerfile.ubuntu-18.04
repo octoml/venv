@@ -45,7 +45,7 @@ RUN export DUMMY_CK=A
 RUN ${DUMMY_CK} pip3 install virtualenv --user
 RUN ${DUMMY_CK} pip3 install ck --user
 
-# Clone ck-ml repo
+# Clone CK repo
 RUN ck pull repo:ai
 
 # Install packages to CK env entries
