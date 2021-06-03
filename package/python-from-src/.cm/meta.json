@@ -25,7 +25,8 @@
     "linux"
   ],
   "process_script": "install",
-  "soft_uoa": "compiler.python",
+  "soft_uoa": "33f614544b6cad0a",
+  "soft_uoa#": "compiler.python",
   "suggested_path": "python-from-src",
   "need_cpu_info": "yes",
   "tags": [
