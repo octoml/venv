@@ -1,14 +1,18 @@
 {
   "actions": {
-    "create": {
-      "desc": "prepare CK virtual env"
-    }, 
-    "prepare": {
-      "desc": "prepare CK virtual env"
-    }, 
+    "a": {
+      "desc": "activate venv"
+    },
     "activate": {
       "desc": "activate CK virtual env"
+    },
+    "create": {
+      "desc": "prepare CK virtual env"
+    },
+    "prepare": {
+      "desc": "prepare CK virtual env"
     }
-  }, 
+  },
+  "actions_redirect": {},
   "desc": "CK python virtual environment"
 }

@@ -34,8 +34,26 @@ def init(i):
     return {'return': 0}
 
 ##############################################################################
-# run CK virtual env
+# activate CK virtual env
 
+def a(i):
+    """
+    Input:  {
+              data_uoa - virtual environment name
+            }
+
+    Output: {
+              return       - return code =  0, if successful
+                                         >  0, if error
+              (error)      - error text if return > 0
+            }
+
+    """
+
+    return activate(i)
+
+##############################################################################
+# activate CK virtual env
 
 def activate(i):
     """
@@ -470,3 +488,4 @@ source $<venv>$
     ck.out('Start it with "ck activate venv:'+duoa+'"')
 
     return {'return': 0}
+
