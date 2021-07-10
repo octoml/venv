@@ -5,7 +5,7 @@ rem Developer(s):
 rem  * Grigori Fursin, OctoML.ai
 rem
 
-call common.bat ck pull repo:ai
+call common.bat ck pull repo:ck-mlops
 if %errorlevel% neq 0 (exit /b 1)
 
 rem Install packages to CK env entries
