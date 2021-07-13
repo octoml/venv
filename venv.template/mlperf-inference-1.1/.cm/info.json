@@ -1,0 +1,15 @@
+{
+  "backup_data_uid": "73ead4a14b84264c",
+  "backup_module_uid": "00437f87b26fd015",
+  "backup_module_uoa": "venv.template",
+  "control": {
+    "engine": "CK",
+    "iso_datetime": "2021-07-13T12:51:36.848050",
+    "version": [
+      "2",
+      "5",
+      "7"
+    ]
+  },
+  "data_name": "mlperf-inference-1.1"
+}
