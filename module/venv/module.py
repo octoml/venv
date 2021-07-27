@@ -249,6 +249,8 @@ def prepare(i):
     ck.out('')
     if quiet == 'yes':
         x = '0'
+
+        ck.out('Selected: 0')
     else:
         x = input('Select the version (Press Enter to select 0 and enter -1 to build a specific version you require): ')
         x = x.strip()
