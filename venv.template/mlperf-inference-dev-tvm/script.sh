@@ -34,7 +34,7 @@ ck_command "ck detect soft:compiler.gcc --full_path=`which gcc`"
 ck_command "python3 -m pip install protobuf"
 
 
-ck_command "ck detect soft:tool.cmake"
+ck_command "ck detect soft:tool.cmake --quiet"
 #ck_command "ck install package --quiet --tags=tool,cmake,src"
 
 ck_command "ck install package --quiet --tags=mlperf,inference,src,octoml.dev"
