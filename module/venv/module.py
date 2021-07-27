@@ -126,6 +126,8 @@ def create(i):
 
               (template) - if !='', use scripts from this venv.template entry 
                            at the end of venv creation
+
+              (quiet) - if 'yes', select the first found python and continue
             }
 
     Output: {
@@ -146,6 +148,8 @@ def prepare(i):
 
               (template) - if !='', use scripts from this venv.template entry 
                            at the end of venv creation
+
+              (quiet) - if 'yes', select the first found python and continue
             }
 
     Output: {
@@ -159,6 +163,8 @@ def prepare(i):
     import os
 
     o = i.get('out', '')
+
+    quiet = i.get('quiet', '')
 
     duoa = i.get('data_uoa', '')
 
@@ -211,6 +217,8 @@ def prepare(i):
         ii = {'action': 'detect',
               'module_uoa': 'soft',
               'data_uoa': 'compiler.python'}
+        if quiet != '':
+            ii['quiet'] = quiet
         if o == 'con':
             ii['out'] = 'con'
 
@@ -239,10 +247,13 @@ def prepare(i):
         j += 1
 
     ck.out('')
-    x = input('Select the version (Press Enter to select 0 and enter -1 to build a specific version you require): ')
-    x = x.strip()
-    if x == '':
+    if quiet == 'yes':
         x = '0'
+    else:
+        x = input('Select the version (Press Enter to select 0 and enter -1 to build a specific version you require): ')
+        x = x.strip()
+        if x == '':
+            x = '0'
 
     y = int(x)
 
