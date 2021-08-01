@@ -43,13 +43,15 @@ ck_command "ck install package --tags=lib,python-package,absl"
 
 ck_command "ck install package --tags=lib,python-package,numpy"
 
-ck_command "ck install package --tags=lib,python-package,mlperf,loadgen"
+ck_command "ck install package --tags=lib,python-package,scipy"
 
 ck_command "ck install package --tags=lib,python-package,matplotlib"
 
 ck_command "ck install package --tags=lib,python-package,cython"
 
 ck_command "ck install package --tags=lib,python-package,opencv-python-headless"
+
+ck_command "ck install package --tags=lib,python-package,mlperf,loadgen"
 
 ck_command "ck install package --tags=tool,coco,api"
 
