@@ -6,6 +6,9 @@
     "activate": {
       "desc": "activate CK virtual env"
     },
+    "c": {
+      "desc": "create virtual environment (shortcut)"
+    },
     "create": {
       "desc": "prepare CK virtual env"
     },

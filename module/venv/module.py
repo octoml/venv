@@ -34,22 +34,9 @@ def init(i):
     return {'return': 0}
 
 ##############################################################################
-# activate CK virtual env
+# activate CK virtual env (shortcut)
 
 def a(i):
-    """
-    Input:  {
-              data_uoa - virtual environment name
-            }
-
-    Output: {
-              return       - return code =  0, if successful
-                                         >  0, if error
-              (error)      - error text if return > 0
-            }
-
-    """
-
     return activate(i)
 
 ##############################################################################
@@ -115,6 +102,13 @@ def activate(i):
     os.system(s)
 
     return {'return': 0}
+
+
+##############################################################################
+# create virtual environment (shortcut)
+
+def c(i):
+    return prepare(i)
 
 ##############################################################################
 # prepare CK virtual env

@@ -35,7 +35,7 @@ ck_command "python3 -m pip install protobuf"
 
 
 #ck_command "ck detect soft:tool.cmake"
-ck_command "ck install package --quiet --tags=tool,cmake,src"
+ck_command "ck install package --quiet --tags=tool,cmake,prebuilt"
 
 ck_command "ck install package --quiet --tags=mlperf,inference,src,r1.0"
 
