@@ -118,8 +118,9 @@ def create(i):
               data_uoa - virtual environment name
               (force_detect) - if 'yes' force to detect installed python again
 
-              (template) - if !='', use scripts from this venv.template entry 
-                           at the end of venv creation
+              (template) - if !='', use scripts from this venv.template entry
+                           at the end of venv creation.
+                           "generic" template is used by default.
 
               (quiet) - if 'yes', select the first found python and continue
             }
@@ -140,8 +141,9 @@ def prepare(i):
               data_uoa - virtual environment name
               (force_detect) - if 'yes' force to detect installed python again
 
-              (template) - if !='', use scripts from this venv.template entry 
-                           at the end of venv creation
+              (template) - if !='', use scripts from this venv.template entry
+                           at the end of venv creation.
+                           "generic" template is used by default.
 
               (quiet) - if 'yes', select the first found python and continue
             }
@@ -172,6 +174,10 @@ def prepare(i):
 
     # Check template
     template = i.get('template','')
+    if template == '':
+        template='generic'
+    template=template.strip()
+
     template_path = ''
     if template != '':
         r = ck.access({'action':'load',
