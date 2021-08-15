@@ -18,7 +18,7 @@ function ck_command {
 
 }
 
-ck_command "ck pull repo:ck-mlops"
+ck_command "ck pull repo:ck-mlops --checkout=mlperf-1.1-seed"
 
 # Install packages to CK env entries
 ck_command "ck setup kernel --var.install_to_env=yes"
