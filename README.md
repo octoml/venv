@@ -1,3 +1,6 @@
+***OctoML and the cTuning foundation donated this repository to MLCommons: https://github.com/mlcommons/ck-venv***
+
+
 # Virtual CK environment
 
 [![compatibility](https://github.com/ctuning/ck-guide-images/blob/master/ck-compatible.svg)](https://github.com/ctuning/ck)
